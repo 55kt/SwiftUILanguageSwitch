@@ -13,33 +13,23 @@ struct LanguageSelectionView: View {
     @AppStorage("MyLanguages") var currentLanguage: String = Locale.current.language.languageCode?.identifier ?? "en"
     
     @State private var selectedLanguageIndex = 0
-    
     @Environment(\.dismiss) private var dismiss
+    
+    @State private var isLoading = false
     
     var body: some View {
         NavigationStack {
-            
-            VStack {
-                
-                Text("choose_language".localized(using: currentLanguage))
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .padding(.top, 20)
-                
-                List {
+            ZStack {
+                VStack {
+                    Text("choose_language".localized(using: currentLanguage))
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .padding(.top, 20)
                     
-                    if languageManager.supportedLanguages.count > 0 {
+                    List {
                         ForEach(0..<languageManager.supportedLanguages.count, id: \.self) { index in
                             Button {
-                                let languageCode = languageManager.supportedLanguages[index]
-                                
-                                languageManager.setLanguage(languageCode)
-                                
-                                currentLanguage = languageCode
-                                
-                                selectedLanguageIndex = index
-                                
-                                dismiss()
+                                selectLanguage(at: index)
                             } label: {
                                 HStack {
                                     Text(languageManager.languageDisplayName(for: languageManager.supportedLanguages[index]))
@@ -48,42 +38,69 @@ struct LanguageSelectionView: View {
                                     
                                     Spacer()
                                     
-                                    if selectedLanguageIndex == index {
-                                        Image(systemName: "checkmark.circle.fill")
-                                            .foregroundStyle(.blue)
-                                            .imageScale(.large)
-                                    } else {
-                                        Image(systemName: "circle")
-                                            .foregroundStyle(.secondary)
-                                            .imageScale(.large)
-                                    }
+                                    Image(systemName: selectedLanguageIndex == index ? "checkmark.circle.fill" : "circle")
+                                        .foregroundStyle(selectedLanguageIndex == index ? .blue : .secondary)
+                                        .imageScale(.large)
                                 }
-                                
                                 .padding(.vertical, 10)
                             }
-
-                        }.onAppear {
-                            
+                        }
+                        .onAppear {
                             if let index = languageManager.supportedLanguages.firstIndex(of: currentLanguage) {
                                 selectedLanguageIndex = index
-                            } else {
-                                let defaultLanguage = "en"
-                                if let defaultIndex = languageManager.supportedLanguages.firstIndex(of: defaultLanguage) {
-                                    selectedLanguageIndex = defaultIndex
-                                    currentLanguage = defaultLanguage
-                                    languageManager.setLanguage(defaultLanguage)
-                                }
                             }
                         }
                     }
+                    .listStyle(InsetGroupedListStyle())
+                    
+                    Spacer()
                 }
-                .listStyle(InsetGroupedListStyle())
                 
-                Spacer()
+                if isLoading {
+                    LoadingOverlayView(text: "Please wait...")
+                }
             }
             .navigationTitle(Text("language_selection_title".localized(using: currentLanguage)))
             .navigationBarTitleDisplayMode(.inline)
         }
+    }
+    
+    // MARK: - Helpers
+    private func selectLanguage(at index: Int) {
+        isLoading = true
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            let languageCode = languageManager.supportedLanguages[index]
+            
+            languageManager.setLanguage(languageCode)
+            currentLanguage = languageCode
+            selectedLanguageIndex = index
+            
+            isLoading = false
+            dismiss()
+        }
+    }
+}
+
+struct LoadingOverlayView: View {
+    var text: String = "Loading..."
+    
+    var body: some View {
+        Color.black.opacity(0.4)
+            .ignoresSafeArea()
+            .overlay {
+                VStack(spacing: 12) {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle())
+                        .scaleEffect(1.5)
+                    
+                    Text(text)
+                        .foregroundColor(.white)
+                        .font(.headline)
+                }
+                .padding()
+            }
+            .transition(.opacity)
     }
 }
 

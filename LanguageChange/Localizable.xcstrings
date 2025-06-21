@@ -58,13 +58,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This app supports multiple languages.\\nYou can change the language anytime."
+            "value" : "This app supports multiple languages. You can change the language anytime."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Это приложение поддерживает несколько языков.\\nВы можете изменить язык в любой момент."
+            "value" : "Это приложение поддерживает несколько языков. Вы можете изменить язык в любой момент."
           }
         }
       }
