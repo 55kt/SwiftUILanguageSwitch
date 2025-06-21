@@ -13,7 +13,7 @@ struct LanguageChangeApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView()
                 .environmentObject(languageManager)
         }
     }

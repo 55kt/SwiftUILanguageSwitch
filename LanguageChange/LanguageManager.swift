@@ -33,4 +33,9 @@ class LanguageManager: ObservableObject {
             return languageCode
         }
     }
+    
+    func nativeLanguageName(for languageCode: String) -> String? {
+        let locale = Locale(identifier: languageCode)
+        return locale.localizedString(forLanguageCode: languageCode)?.capitalized
+    }
 }

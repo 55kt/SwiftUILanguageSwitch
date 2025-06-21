@@ -52,6 +52,26 @@
         }
       }
     },
+    "Current Language" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Текущий язык"
+          }
+        }
+      }
+    },
+    "English" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Английский"
+          }
+        }
+      }
+    },
     "footer_text" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -69,6 +89,28 @@
         }
       }
     },
+    "Hello in the home screen" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Добро пожаловать на домашний экран"
+          }
+        }
+      }
+    },
+    "Home" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дом"
+          }
+        }
+      }
+    },
     "language_selection_title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -82,6 +124,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Выбор языка"
+          }
+        }
+      }
+    },
+    "Settings" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Настройки"
           }
         }
       }
