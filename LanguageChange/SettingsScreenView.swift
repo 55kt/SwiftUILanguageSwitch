@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct SettingsScreenView: View {
+    let currentLanguage: String
+    @EnvironmentObject private var languageManager: LanguageManager
     
     // MARK: - Body
     var body: some View {
         Form {
             /// Language selection
             NavigationLink(destination: LanguageSelectionView()) {
-                SelectLanguageCellView()
-            }
+                SelectLanguageCellView(
+                    languageManager: languageManager, currentLanguage: currentLanguage
+                )
+            }// NavigationLink
             
         }// Form
     }// Body
@@ -24,7 +28,8 @@ struct SettingsScreenView: View {
 // MARK: - Preview
 #Preview {
     NavigationStack {
-        SettingsScreenView()
+        SettingsScreenView(currentLanguage: "en")
             .navigationTitle("Settings")
+            .environmentObject(LanguageManager())
     }
 }

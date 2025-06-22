@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct SelectLanguageCellView: View {
-    @AppStorage("MyLanguages") private var currentLanguage: String = Locale.current.language.languageCode?.identifier ?? "en"
+    let languageManager: LanguageManager
+    let currentLanguage: String
     
     // MARK: - Body
     var body: some View {
@@ -24,7 +25,7 @@ struct SelectLanguageCellView: View {
             
             Spacer()
             
-            Text("english".localized(using: currentLanguage))
+            Text(languageManager.nativeLanguageName(for: currentLanguage) ?? currentLanguage)
                 .font(.subheadline)
                 .foregroundStyle(.gray)
         }// HStack
@@ -35,6 +36,7 @@ struct SelectLanguageCellView: View {
 // MARK: - Preview
 #Preview {
     NavigationStack {
-        SelectLanguageCellView()
+        SelectLanguageCellView(languageManager: LanguageManager(), currentLanguage: "en")
+            .environmentObject(LanguageManager())
     }
 }

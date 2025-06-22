@@ -23,14 +23,14 @@ struct MainTabView: View {
             
             Tab("home_title".localized(using: currentLanguage), systemImage: "house") {
                 NavigationStack(path: pathBinding(for: "homeScreen")) {
-                    HomeScreenView()
+                    HomeScreenView(currentLanguage: currentLanguage)
                         .navigationTitle("home_title".localized(using: currentLanguage))
                 }
             }// Home Tab
             
             Tab("settings_title".localized(using: currentLanguage), systemImage: "gear") {
                 NavigationStack(path: pathBinding(for: "settingsScreen")) {
-                    SettingsScreenView()
+                    SettingsScreenView(currentLanguage: currentLanguage)
                         .navigationTitle("settings_title".localized(using: currentLanguage))
                 }
             }// Settings Tab
@@ -52,4 +52,5 @@ struct MainTabView: View {
 // MARK: - Properties
 #Preview {
     MainTabView()
+        .environmentObject(LanguageManager())
 }

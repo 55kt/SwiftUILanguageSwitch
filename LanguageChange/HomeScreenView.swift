@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeScreenView: View {
     // MARK: - Properties
-    @AppStorage("MyLanguages") var currentLanguage: String = Locale.current.language.languageCode?.identifier ?? "en"
+    let currentLanguage: String
     @EnvironmentObject var languageManager: LanguageManager
     
     // MARK: - Body
@@ -45,7 +45,7 @@ struct HomeScreenView: View {
 // MARK: - Preview
 #Preview {
     NavigationStack {
-        HomeScreenView()
+        HomeScreenView(currentLanguage: "en")
             .navigationTitle("Home")
     }
 }
