@@ -12,7 +12,6 @@ struct SettingsScreenView: View {
     // MARK: - Body
     var body: some View {
         Form {
-            
             /// Language selection
             NavigationLink(destination: LanguageSelectionView()) {
                 SelectLanguageCellView()

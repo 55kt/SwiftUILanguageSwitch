@@ -1,19 +1,19 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "app_title" : {
+    "cancelation_button" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "LocalisationApp"
+            "value" : "Cancel"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ЛокализационноеПриложение"
+            "value" : "Отмена"
           }
         }
       }
@@ -52,8 +52,15 @@
         }
       }
     },
-    "Current Language" : {
+    "current_language" : {
+      "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Current language"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -62,8 +69,15 @@
         }
       }
     },
-    "English" : {
+    "english" : {
+      "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "English"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -89,24 +103,36 @@
         }
       }
     },
-    "Hello in the home screen" : {
-      "extractionState" : "stale",
+    "home_title" : {
+      "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Home"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Добро пожаловать на домашний экран"
+            "value" : "Главная"
           }
         }
       }
     },
-    "Home" : {
-      "extractionState" : "stale",
+    "homescreen_central_title" : {
+      "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Welcome to the multilingual app"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Дом"
+            "value" : "Добро пожаловать на домащний экран"
           }
         }
       }
@@ -128,9 +154,49 @@
         }
       }
     },
-    "Settings" : {
-      "extractionState" : "stale",
+    "loading_text" : {
+      "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Загрузка"
+          }
+        }
+      }
+    },
+    "search_placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поиск"
+          }
+        }
+      }
+    },
+    "settings_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",

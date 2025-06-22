@@ -21,17 +21,17 @@ struct MainTabView: View {
     var body: some View {
         TabView {
             
-            Tab("Home".localized(using: currentLanguage), systemImage: "house") {
+            Tab("home_title".localized(using: currentLanguage), systemImage: "house") {
                 NavigationStack(path: pathBinding(for: "homeScreen")) {
                     HomeScreenView()
-                        .navigationTitle("Home".localized(using: currentLanguage))
+                        .navigationTitle("home_title".localized(using: currentLanguage))
                 }
             }// Home Tab
             
-            Tab("Settings".localized(using: currentLanguage), systemImage: "gear") {
+            Tab("settings_title".localized(using: currentLanguage), systemImage: "gear") {
                 NavigationStack(path: pathBinding(for: "settingsScreen")) {
                     SettingsScreenView()
-                        .navigationTitle("Settings".localized(using: currentLanguage))
+                        .navigationTitle("settings_title".localized(using: currentLanguage))
                 }
             }// Settings Tab
             

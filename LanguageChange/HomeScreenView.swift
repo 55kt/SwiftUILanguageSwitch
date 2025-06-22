@@ -14,9 +14,9 @@ struct HomeScreenView: View {
     
     // MARK: - Body
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack {
-                Text("Hello in the home screen".localized(using: currentLanguage))
+                Text("homescreen_central_title".localized(using: currentLanguage))
                     .font(.largeTitle)
                     .bold()
                     .multilineTextAlignment(.center)
@@ -37,7 +37,8 @@ struct HomeScreenView: View {
                 .multilineTextAlignment(.center)
                 .padding()
         }// ScrollView
-        .searchable(text: .constant(""))
+        .searchable(text: .constant(""), prompt: ("search_placeholder".localized(using: currentLanguage)))
+        .modifier(CancelButtonLocalizer())
     }// Body
 }// View
 

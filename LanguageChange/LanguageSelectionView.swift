@@ -65,11 +65,12 @@ struct LanguageSelectionView: View {
                 }// VStack
                 
                 if isLoading {
-                    LoadingOverlayView(text: "Please wait...")
+                    LoadingOverlayView()
                 }
             }// ZStack
             .navigationTitle(Text("language_selection_title".localized(using: currentLanguage)))
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar(.hidden, for: .tabBar)
         }// NavigationStack
     }// Body
     
@@ -92,7 +93,7 @@ struct LanguageSelectionView: View {
 
 // MARK: - Loading Overlay
 struct LoadingOverlayView: View {
-    var text: String = "Loading..."
+    @AppStorage("MyLanguages") private var currentLanguage: String = Locale.current.language.languageCode?.identifier ?? "en"
     
     var body: some View {
         Color.black.opacity(0.4)
@@ -103,15 +104,15 @@ struct LoadingOverlayView: View {
                         .progressViewStyle(CircularProgressViewStyle())
                         .scaleEffect(1.5)
                     
-                    Text(text)
+                    Text("loading_text".localized(using: currentLanguage))
                         .foregroundColor(.white)
                         .font(.headline)
-                }
+                }// VStack
                 .padding()
-            }
+            }// overlay
             .transition(.opacity)
-    }
-}
+    }// Body
+}// View
 
 // MARK: - Preview
 #Preview {
